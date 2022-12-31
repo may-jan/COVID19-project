@@ -1,0 +1,419 @@
+*{
+    margin:0;
+    padding:0;
+    text-decoration:none;
+    box-sizing:border-box;
+    color:#000;
+    transition:all .2s;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+
+}
+
+body{
+    width:100%;
+    margin:0 auto;
+    height:auto;
+    background-color:#d3ebf7;
+}
+
+
+
+
+
+/* header, img ----------------------------------------------------------------------------- */
+header{
+    background-color:#222;
+    width:100%;
+    height:300px;
+    text-align:center;
+    position:relative;
+}
+
+header h1{
+    color:#fff;
+    font-size:3.1rem;
+    font-family: 'IBM Plex Sans KR', sans-serif;
+    font-weight:600;
+    letter-spacing:5px;
+    display:block;
+    width:100%;
+    height:auto;
+    position:absolute;
+    top:40%;
+    transform:translateY(-50%);
+}
+
+img.point_img{
+    position:absolute;
+    top:220px;
+    left:5%;
+    animation: point_img 2s infinite alternate linear;
+    transform:scale(1.5);
+}
+
+@keyframes point_img{
+    0%{
+        top:220px;
+    }
+    50%{
+        top:190px;
+    }
+    100%{
+        top:220px;
+    }
+}
+
+
+
+
+
+/* container ----------------------------------------------------------------------------- */
+#container{
+    width:85%;
+    height:auto;
+    position:relative;
+    top:-60px;
+    margin:0 auto;
+    display: grid;
+    grid-gap:30px;
+    grid-template-columns:2fr 1fr;
+    grid-template-rows:auto auto auto auto;
+    grid-template-areas:
+    "status1 status2"
+    "chart status2"
+    "small_banner map"
+    "banner banner";
+}
+
+
+
+
+
+/* container status1 --------------------------------------------------------------------- */
+.status{
+    background-color:#fff;
+    border-radius:15px;
+    box-shadow:0px 0px 8px rgba(126, 126, 126, 0.3);
+    padding:20px;
+
+}
+
+.status1{
+    grid-area:status1;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+}
+
+.status1_wrap{
+    display:flex;
+    justify-content:space-around;
+}
+
+.status1_wrap>div{
+    text-align:center;
+    width:200px;
+    height:250px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.status1_title{
+    font-size:1.8rem;
+    font-weight:600;
+}
+
+.total{
+    margin-top:35px;
+    font-size:2rem;
+    font-weight:600;
+}
+
+.today{
+    margin-top:18px;
+    font-size:1.5rem;
+    opacity:0.7;
+    font-weight:500;
+}
+
+.case{
+    color:red;
+}
+
+.death{
+    color:#555;
+}
+
+.hospital{
+    color:darkcyan;
+}
+
+.status1_time_wrap{
+    display: flex;
+    justify-content:end;
+}
+
+.status1_time_wrap>div{
+    background-color:#f6f6f6;
+    padding:3px 25px;
+    margin:0px 10px;
+    border-radius:15px;
+    font-size:1rem;
+    color:#777;
+}
+
+
+
+
+
+/* container status2 --------------------------------------------------------------------- */
+.status2{
+    grid-area:status2;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+}
+
+.status2 h3{
+    padding:20px 0;
+    margin-bottom:20px;
+    border-radius:15px;
+    text-align:center;
+    font-size:2rem;
+    color:#33516b;
+    font-weight:600;
+}
+
+.status2>.vac_wrap{
+    display:flex;
+    flex-direction:column;
+}
+
+.vac_wrap>div{
+    margin:20px 0;
+    text-align:center;
+    line-height:50px;
+    font-size:1.5rem;
+    font-weight:500;
+}
+
+.vac_wrap>div>span{
+    font-size:1.5rem;
+    background-color:#33516b;
+    color:#fff;
+    padding:5px 30px;
+    font-weight:600;
+}
+
+
+
+
+
+/* container banner --------------------------------------------------------------------- */
+.banner{
+    grid-area:banner;
+    width:100%;
+
+}
+
+.small_banner{
+    grid-area:small_banner;
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+.small_banner>div{
+    width:200px;
+    height:200px;
+    border-radius:40px;
+    overflow:hidden;
+    border:5px solid #33516b;
+    cursor:pointer;
+}
+
+.small_banner>div>img{
+    width:100%;
+    height:100%;
+    transition: all 0.3s;
+}
+
+.small_banner>div>img:hover{
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+/* container map --------------------------------------------------------------------- */
+.map{
+    grid-area:map;
+    background-color:#FBD8B0;
+    text-align: center;
+    cursor:pointer;
+    position:relative;
+}
+
+
+span.search_text{
+    display:block;
+    width:100%;
+    padding:5px 0;
+    background:#33516b;
+    font-size:1.2rem;
+    font-weight:500;
+    color:#fff;
+    position:absolute;
+    bottom:0;
+}
+
+.map:hover .search_text{
+    background-color:tomato;
+}
+
+
+
+/* container chart --------------------------------------------------------------------- */
+.chart{
+    grid-area:chart;
+    display:flex;
+    align-items:center;
+    background-color:#fff;
+    border-radius:15px;
+    box-shadow:0px 0px 8px rgba(126, 126, 126, 0.3);
+}
+
+#bar-chart{
+    padding:10px 30px;
+}
+
+
+
+/* 반응형 --------------------------------------------------------------------- */
+@media all and (max-width:1024px)  {
+    #container{       
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:auto 250px 210px auto;
+    grid-template-areas:
+    "status1 status1"
+    "status2 chart"
+    "status2 map"
+    "banner banner";
+    }
+
+    .status2 h3{
+        padding:12px 0;
+        font-size:1.7rem;
+    }
+    
+    .vac_wrap>div{
+        margin:12px 0;
+        line-height:35px;
+        font-size:1.2rem;
+        background-color:#efefef;
+    }
+    
+    .vac_wrap>div>span{
+        display:inline-block;
+        padding:0px;
+        width:100%;
+        font-size:1.1rem;
+    }
+
+    span.search_text{
+        font-size:1.1rem;
+    }
+
+    .small_banner{
+        display:none;  
+    }
+}
+
+
+
+@media all and (max-width:768px)  {
+    #container{       
+    grid-template-columns:2fr 1fr;
+    grid-template-rows:auto auto 200px auto;
+    grid-template-areas:
+    "status1 status1"
+    "status2 status2"
+    "map small_banner"
+    "banner banner";
+    }
+
+    header h1{
+        font-size:2.5rem;
+    }
+
+    .status1_title{
+        font-size:1.5rem;
+    }
+
+    .total{
+        font-size:1.6rem;
+    }
+
+    .today{
+        font-size:1.1rem;
+    }
+
+    .status1_time_wrap>div{
+        font-size:0.7rem;
+    }
+
+    .status2>.vac_wrap{
+        flex-direction:row;
+        justify-content:space-around;
+    }
+
+    .vac_wrap>div{
+        width:110px;
+        height:110px;
+        font-size:1rem;
+        padding:0;
+        margin:0;
+        line-height:43px;
+    }
+    
+    .vac_wrap>div>span{
+        font-size:1rem;
+        padding:5px 18px;
+        line-height:25px;
+    }
+
+    .map{
+        width:100%;
+        height:100%;
+        margin:auto;
+        position:relative;
+    }
+
+    .map>img{
+        width:100%;
+        position:absolute;
+        left:0;
+        top:50%;
+        transform:translateY(-50%);
+    }
+
+    span.search_text{
+        font-size:1rem;
+    }
+
+    .small_banner{
+        display: block;
+        justify-content:flex-end;
+    }
+
+   .small_banner>div:nth-child(1), .small_banner>div:nth-child(2){
+        display:none;
+   }
+
+   .chart{
+        display:none;
+   }
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COVID19</title>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- main.css -->
+    <link rel="stylesheet" href="css/main.css" />
+    <!-- slick slider -->
+    <link rel="stylesheet" type="text/css" href="css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css" />
+
+    <!-- api key -->
+    <script src="js/apikey.js"></script>
+
+    <!-- main.js -->
+    <script src="js/main.js"></script>
+
+    <!-- slick slider -->
+    <script
+      src="https://code.jquery.com/jquery-2.2.0.min.js"
+      type="text/javascript"
+    ></script>
+    <script src="js/slick.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="js/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>코로나19 (COVID-19)<br />실시간 상황판</h1>
+    </header>
+
+    <img src="img/point_img.png" alt="point" class="point_img" />
+
+    <div id="container">
+      <div class="status status1">
+        <div class="status1_wrap">
+          <div>
+            <div class="status1_title">확진자</div>
+            <div class="total case total_case"></div>
+            <div class="today case today_case"></div>
+          </div>
+          <div>
+            <div class="status1_title">사망자</div>
+            <div class="total death total_death"></div>
+            <div class="today death today_death"></div>
+          </div>
+          <div>
+            <div class="status1_title">입원환자</div>
+            <div class="total hospital total_hospital">-</div>
+            <div class="today hospital today_hospital"></div>
+          </div>
+        </div>
+        <div class="status1_time_wrap">
+          <div class="total_update_time"></div>
+          <div class="today_update_time"></div>
+        </div>
+      </div>
+
+      <div class="chart">
+        <canvas id="bar-chart" width="auto" height="auto"></canvas>
+      </div>
+
+      <div class="status status2">
+        <h3>💉 접종현황 💉</h3>
+        <div class="vac_wrap">
+          <div class="vac"></div>
+          <div class="vac"></div>
+          <div class="vac"></div>
+          <div class="vac"></div>
+        </div>
+      </div>
+
+      <div class="banner">
+        <div class="slider_wrap">
+          <section class="vertical-center slider">
+            <div>
+              <img src="img/banner1.jpg" />
+            </div>
+            <div>
+              <img src="img/banner2.jpg" />
+            </div>
+            <div>
+              <img src="img/banner3.jpg" />
+            </div>
+            <div>
+              <img src="img/banner4.jpg" />
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div class="small_banner">
+        <div class="s_banner1">
+          <img src="img/s_banner1.png" alt="s_banner1" />
+        </div>
+        <div class="s_banner2">
+          <img src="img/s_banner2.png" alt="s_banner2" />
+        </div>
+        <div class="s_banner3">
+          <img src="img/s_banner3.png" alt="s_banner3" />
+        </div>
+      </div>
+
+      <div class="map" onclick="popup()">
+        <img src="img/map.jpg" alt="map_img" class="map_img" />
+        <br /><span class="search_text">예방접종센터 찾기 🔍</span>
+      </div>
+    </div>
+  </body>
+</html>
