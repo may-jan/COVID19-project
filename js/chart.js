@@ -5,7 +5,6 @@ fetch(
 )
   .then((response) => response.json())
   .then((data) => {
-    console.log(data.response.result[0]);
     let dailyInfo = data.response.result[0];
 
     let date1 = dailyInfo.mmdd1;
