@@ -1,5 +1,7 @@
+// 날짜별 확진자 차트
+// 질병관리청_코로나19 국내발생현황(확진) 조회
+// https://www.data.go.kr/index.do
 const chart_KEY = config.chart_KEY;
-
 fetch(
   `http://apis.data.go.kr/1790387/covid19CurrentStatusConfirmations/covid19CurrentStatusConfirmationsJson?serviceKey=${chart_KEY}`
 )
@@ -23,14 +25,14 @@ fetch(
     let cnt6 = dailyInfo.cnt6;
     let cnt7 = dailyInfo.cnt7;
 
-    new Chart(document.getElementById("bar-chart"), {
-      type: "bar",
+    new Chart(document.getElementById('bar-chart'), {
+      type: 'bar',
       data: {
         labels: [date1, date2, date3, date4, date5, date6, date7],
         datasets: [
           {
-            label: "확진자",
-            backgroundColor: "#c45850",
+            label: '확진자',
+            backgroundColor: '#c45850',
             data: [cnt1, cnt2, cnt3, cnt4, cnt5, cnt6, cnt7],
             fontSize: 40,
           },
@@ -44,8 +46,8 @@ fetch(
         // 차트 타이틀
         title: {
           display: true,
-          text: "최근 7일 확진 현황",
-          fontColor: "rgba(12, 13, 13, 1)",
+          text: '최근 7일 확진 현황',
+          fontColor: 'rgba(12, 13, 13, 1)',
           fontSize: 25,
         },
 
