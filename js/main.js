@@ -10,11 +10,12 @@ fetch(`https://api.corona-19.kr/korea/?serviceKey=${covid_KEY}`)
     const TotalCase = data.korea.totalCnt; // 전체 확진자수
     const TotalDeath = data.korea.deathCnt; // 전체 사망자수
 
-    document.querySelector(
-      '.total_update_time'
-    ).innerText = `전체 현황 : ${updateTime}`;
-    document.querySelector('.total_case').innerText = TotalCase;
-    document.querySelector('.total_death').innerText = TotalDeath;
+    document.querySelector('.total_update_time').innerText =
+      updateTime !== undefined ? `전체 현황 : ${updateTime}` : `loading⋯`;
+    document.querySelector('.total_case').innerText =
+      TotalCase !== undefined ? `${TotalCase}` : `loading⋯`;
+    document.querySelector('.total_death').innerText =
+      TotalDeath !== undefined ? `${TotalDeath}` : `loading⋯`;
   })
   .catch((error) => alert(error));
 
@@ -51,19 +52,25 @@ fetch(
   .then((response) => response.json())
   .then((data) => {
     let TodayInfo = data['response']['result'][0];
-    document.querySelector(
-      '.today_update_time'
-    ).innerText = `일일 현황 : ${TodayInfo.mmddhh} 기준`;
-    document.querySelector(
-      '.today_case'
-    ).innerText = `+ ${TodayInfo.cnt_confirmations}`;
-    document.querySelector(
-      '.today_death'
-    ).innerText = `+ ${TodayInfo.cnt_deaths}`;
+    document.querySelector('.today_update_time').innerText =
+      TodayInfo.mmddhh !== undefined
+        ? `일일 현황 : ${TodayInfo.mmddhh} 기준`
+        : `loading⋯`;
+
+    document.querySelector('.today_case').innerText =
+      TodayInfo.cnt_confirmations !== undefined
+        ? `+ ${TodayInfo.cnt_confirmations}`
+        : `loading⋯`;
+
+    document.querySelector('.today_death').innerText =
+      TodayInfo.cnt_deaths !== undefined
+        ? `+ ${TodayInfo.cnt_deaths}`
+        : `loading⋯`;
+
     document.querySelector('.today_hospital').innerText =
       TodayInfo.cnt_hospitalizations !== undefined
-        ? `-`
-        : ` + ${TodayInfo.cnt_hospitalizations}`;
+        ? ` + ${TodayInfo.cnt_hospitalizations}`
+        : `loading⋯`;
   })
   .catch((error) => console.log(error));
 
