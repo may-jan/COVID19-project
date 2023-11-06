@@ -13,18 +13,17 @@ function success(e) {
 }
 
 function error() {
-  alert("위치 정보를 불러올 수 없습니다");
+  alert('위치 정보를 불러올 수 없습니다');
 }
 
 // 중앙•권역, 지역별 코로나19 예방접종센터 위치정보 (공공데이터)
-
 const map_KEY = config.map_KEY;
 fetch(
   `https://api.odcloud.kr/api/15077586/v1/centers?page=1&perPage=284&serviceKey=${map_KEY}`
 )
   .then((response) => response.json())
   .then((data) => {
-    const hosInfo = data["data"];
+    const hosInfo = data['data'];
 
     // 병원 정보
     hosInfo.forEach((item) => {
@@ -67,7 +66,9 @@ fetch(
 
 // 지도 출력 함수 showMap
 function showMap(positions) {
-  let mapContainer = document.getElementById("map");
+  // 마커에 마우스 이벤트 등록하기
+  // https://apis.map.kakao.com/web/sample/addMarkerMouseEvent/
+  let mapContainer = document.getElementById('map');
 
   let mapOption = {
     // 지도의 중심좌표
@@ -80,10 +81,11 @@ function showMap(positions) {
 
   let map = new kakao.maps.Map(mapContainer, mapOption);
 
-  // 마커찍기
+  // 다른 이미지로 마커 생성하기
+  // https://apis.map.kakao.com/web/sample/basicMarkerImage/
   positions.forEach((item) => {
     let imageSrc =
-      "https://www.shareicon.net/data/512x512/2016/04/03/744127_hospital_512x512.png";
+      'https://www.shareicon.net/data/512x512/2016/04/03/744127_hospital_512x512.png';
     let imageSize = new kakao.maps.Size(45, 45);
     let markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 
@@ -99,6 +101,8 @@ function showMap(positions) {
     // 문자열에서 '코로나19' 잘라내기
     let centerName = item.name.slice(5);
 
+    // 인포윈도우 생성하기
+    // https://apis.map.kakao.com/web/sample/basicInfoWindow/
     // 마커에 mouseover 했을 때 표시할 인포윈도우 생성
     let iwContent = `
         <div class="window_wrap">
@@ -112,12 +116,12 @@ function showMap(positions) {
     });
 
     // mouseover 이벤트
-    kakao.maps.event.addListener(marker, "mouseover", function () {
+    kakao.maps.event.addListener(marker, 'mouseover', function () {
       infowindow.open(map, marker);
     });
 
     // mouseout 이벤트
-    kakao.maps.event.addListener(marker, "mouseout", function () {
+    kakao.maps.event.addListener(marker, 'mouseout', function () {
       infowindow.close();
     });
 
