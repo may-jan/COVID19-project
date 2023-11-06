@@ -3,7 +3,8 @@
 // https://www.data.go.kr/index.do
 const chart_KEY = config.chart_KEY;
 fetch(
-  `http://apis.data.go.kr/1790387/covid19CurrentStatusConfirmations/covid19CurrentStatusConfirmationsJson?serviceKey=${chart_KEY}`
+  `http://apis.data.go.kr/1790387/covid19CurrentStatusConfirmations/covid19CurrentStatusConfirmationsJson?serviceKey=${chart_KEY}`,
+  { headers: { Accept: 'application/json' } }
 )
   .then((response) => response.json())
   .then((data) => {

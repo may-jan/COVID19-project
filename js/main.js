@@ -3,7 +3,9 @@ const covid_KEY = config.covid_KEY;
 // 전체 확진 현황
 // https://api.corona-19.kr
 // https://github.com/dhlife09/Corona-19-API?utm_source=keygen-email
-fetch(`https://api.corona-19.kr/korea/?serviceKey=${covid_KEY}`)
+fetch(`https://api.corona-19.kr/korea/?serviceKey=${covid_KEY}`, {
+  headers: { Accept: 'application/json' },
+})
   .then((response) => response.json())
   .then((data) => {
     const updateTime = data.API.updateTime.slice(14, -1); // 전체 현황 업데이트시간
@@ -22,7 +24,9 @@ fetch(`https://api.corona-19.kr/korea/?serviceKey=${covid_KEY}`)
 // 예방접종 현황
 // https://api.corona-19.kr
 // https://github.com/dhlife09/Corona-19-API?utm_source=keygen-email
-fetch(`https://api.corona-19.kr/korea/vaccine/?serviceKey=${covid_KEY}`)
+fetch(`https://api.corona-19.kr/korea/vaccine/?serviceKey=${covid_KEY}`, {
+  headers: { Accept: 'application/json' },
+})
   .then((response) => response.json())
   .then((data) => {
     const vacList = [
@@ -47,7 +51,8 @@ fetch(`https://api.corona-19.kr/korea/vaccine/?serviceKey=${covid_KEY}`)
 const covid_today_KEY = config.covid_today_KEY;
 
 fetch(
-  `http://apis.data.go.kr/1790387/covid19CurrentStatusKorea/covid19CurrentStatusKoreaJason?serviceKey=${covid_today_KEY}&pageNo=1&numOfRows=10&startCreateDt=20220101&end20221116`
+  `http://apis.data.go.kr/1790387/covid19CurrentStatusKorea/covid19CurrentStatusKoreaJason?serviceKey=${covid_today_KEY}&pageNo=1&numOfRows=10&startCreateDt=20220101&end20221116`,
+  { headers: { Accept: 'application/json' } }
 )
   .then((response) => response.json())
   .then((data) => {

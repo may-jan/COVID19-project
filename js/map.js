@@ -19,7 +19,8 @@ function error() {
 // 중앙•권역, 지역별 코로나19 예방접종센터 위치정보 (공공데이터)
 const map_KEY = config.map_KEY;
 fetch(
-  `https://api.odcloud.kr/api/15077586/v1/centers?page=1&perPage=284&serviceKey=${map_KEY}`
+  `https://api.odcloud.kr/api/15077586/v1/centers?page=1&perPage=284&serviceKey=${map_KEY}`,
+  { headers: { Accept: 'application/json' } }
 )
   .then((response) => response.json())
   .then((data) => {
