@@ -4,7 +4,7 @@
 <p>코로나 현황 정보와 예방접종 센터의 위치를 조회할 수 있는 사이트입니다.</p>
 <p>[예방접종센터 찾기] 클릭 시 지도 팝업이 나타납니다</p>
 
-<p>🔗 배포 URL : <a href='https://sesac-c1a13.web.app/'> COVID 19</a></p>
+<p>🔗 배포 URL : <a href='https://jaeeun-covid19.netlify.app/'> COVID 19</a></p>
 <p>배포 후 오류가 많아 수정중입니다</p>
 <br/>
 <br/>
